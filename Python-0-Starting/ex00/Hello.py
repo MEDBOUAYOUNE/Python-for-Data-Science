@@ -14,6 +14,7 @@ ft_list_tuple[1] = "Morocco!"
 ft_tuple         = tuple(ft_list_tuple)
 
 ft_set.remove("tutu!")
+
 ft_set.add("Ben Guerir!")
 
 ft_dict["Hello"] = "1337!"
