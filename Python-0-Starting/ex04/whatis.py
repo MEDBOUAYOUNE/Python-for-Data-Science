@@ -1,6 +1,6 @@
 import sys
 
-# print(len(sys.argv))
+print(len(sys.argv))
 try:
     assert len(sys.argv) == 2, "AssertionError: argument is not an integer"
     assert sys.argv[1].isdigit(), "AssertionError: argument is not an integer"
