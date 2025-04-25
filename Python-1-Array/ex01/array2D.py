@@ -17,18 +17,26 @@ def slice_me(family: list, start: int, end: int) -> list:
     """
 
     try:
-        row = len(family)
-        colum = len(family[0])
-        print(f"My shape is : ({row}, {colum})")
+        # row = len(family)
+        # colum = len(family[0])
+        # print(f"My shape is : ({row}, {colum})")
 
-        for r in family:
-            if len(r) != colum:
-               raise ValueError("All rows must have the same number of columns")
+        # for r in family:
+        #     if len(r) != colum:
+        #        raise ValueError("All rows must have the same number of columns")
             
-        sliced = family[start:end]
+        # sliced = family[start:end]
 
-        print(f"My new shape is : ({len(sliced)}, {colum})")
-        return sliced
+        # print(f"My new shape is : ({len(sliced)}, {colum})")
+        # return sliced
+
+
+        #After Discover Numpy Magic
+        ndarray = numpy.array(family)
+        print(f"My shape is : {ndarray.shape}" )
+        print(f"My new shape is : {ndarray[start:end].shape}")
+        return ndarray[start:end]
+
 
     except Exception as e:
         print(e)
