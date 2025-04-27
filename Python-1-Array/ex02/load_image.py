@@ -1,3 +1,4 @@
+#REF: https://pillow.readthedocs.io/en/stable/reference/Image.html#functions
 import numpy as np
 from numpy import ndarray
 from PIL import Image
