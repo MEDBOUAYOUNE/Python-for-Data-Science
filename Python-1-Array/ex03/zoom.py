@@ -4,6 +4,7 @@ from numpy import ndarray
 
 
 def zoom(path: str) -> None:
+    """ """ 
     _ndarray = ft_load(path)
     _ndarray = _ndarray[150:550, 400:800, 1]
     print(f"New shape after slicing: {_ndarray.shape}")
