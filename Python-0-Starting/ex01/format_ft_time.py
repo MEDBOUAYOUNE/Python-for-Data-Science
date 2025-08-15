@@ -7,6 +7,7 @@ seconds = time.time()
 print(f"Seconds since January 1, 1970: {seconds:,.4f} or {seconds:.2e} in scientific notation$")
 
 today = date.today()
+# print(type(today))
 today_formatted = today.strftime("%b %d %Y")
 print(today_formatted)
 

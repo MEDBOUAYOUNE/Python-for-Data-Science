@@ -1,20 +1,39 @@
 def NULL_not_found(object: any) -> int:
-    object_name = {
-        "NoneType" : "Nothing",
-        "float" : "Cheese",
-        "int" : "Zero",
-        "str" : "Empty",
-        "bool" : 'Fake',
+    """
+        Identifies and categorizes a 'null-like' value based on its type and falsy value.
 
-    }
+        The function checks the provided object and prints a specific label depending on its type 
+        and whether it's considered "falsy" (i.e., evaluates to False in a boolean context).
 
-    object_type = type(object)
+    """
 
-    # i guess this check is a hardcode, but it think should check by value not type it is easy too.
-    if object and object_type is str:
-        print("Type not Found")
+    if object is None:
+        print(f'Nothing: {object} {type(object)}')
+        return 0
+    elif type(object) is float and object != object:
+        print(f'Cheese: {object} {type(object)}')
+        return 0
+    elif type(object) is int and not object:
+        print(f'Zero: {object} {type(object)}')
+        return 0
+    elif type(object) is str and not object:
+        print(f'Empty: {object} {type(object)}')
+        return 0
+    elif type(object) is bool and not object:
+        print(f'Fake: {object} {type(object)}')
+        return 0
+    else:
+        print('Type not Found')
         return 1
 
-    print(f"{object_name[object_type.__name__]} : {object} : {object_type}")
-    return 0
 
+
+# $>python tester.py | cat -e
+# Nothing: None <class 'NoneType'>$
+# Cheese: nan <class 'float'>$
+# Zero: 0 <class 'int'>$
+# Empty: <class 'str'>$
+# Fake: False <class 'bool'>$
+# Type not Found$
+# 1$
+# $>

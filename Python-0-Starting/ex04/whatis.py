@@ -1,9 +1,16 @@
 import sys
 
-print(len(sys.argv))
+def isNumber(arg: str) -> bool:
+    if not arg:
+        return False
+    if arg[0] == "-":
+        return arg[1:].isdigit() and len(arg) > 1 
+    return arg.isdigit()
+
 try:
     assert len(sys.argv) == 2, "AssertionError: argument is not an integer"
-    assert sys.argv[1].isdigit(), "AssertionError: argument is not an integer"
+    print(isNumber(sys.argv[1]))
+    assert  isNumber(sys.argv[1]), "AssertionError: argument is not an integer"
 
     value = int(sys.argv[1])
 
