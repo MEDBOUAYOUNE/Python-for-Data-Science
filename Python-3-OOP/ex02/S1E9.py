@@ -22,5 +22,5 @@ class Stark(Character):
     def die(self):
         """Your docstring for Method"""
         self.is_alive = False
-        # return self.is_alive
+        return self.is_alive
         
