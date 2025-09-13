@@ -11,27 +11,28 @@ def plotPop(path: str) ->None:
     """
     try:
         df = load(path)
-        # print(df)
-        # print(df.head())
-        # print(df.shape)
-        years = df.columns
-        years = [int(year) for year in years]
 
-        moroccan_data = df.loc['Belgium'].values
-        canadian_data = df.loc['France'].values
+        # Restrict to years 1800–2050
+        years = df.loc[:, "1800":"2050"].columns.astype(int)
 
-        plt.plot(years, moroccan_data, label='USA')
-        plt.plot(years, canadian_data, label='Japan')
-        # plt.xlim(years.min() - 1, years.max() + 1)
+        # Extract population data
+        moroccan_data = df.loc["Morocco", "1800":"2050"].values 
+        france_data = df.loc["France", "1800":"2050"].values
+
+        # Plot data
+        plt.plot(years, moroccan_data, label="Morocco")
+        plt.plot(years, france_data, label="France")
+
+        # Add labels and title
+        plt.title("Population Projections")
+        plt.xlabel("Year")
+        plt.ylabel("Population (total)")
+        plt.legend()
         plt.tight_layout()
-        plt.title('Population Projections')
-        plt.xlabel('Year')
-        plt.ylabel('Population')
         plt.show()
 
-        # print(years, moroccan_data, canada_data)
     except Exception as e:
-        print(f'Unexcpected error: {e}')
+        print(f"Unexpected error: {e}")
 
 
 
