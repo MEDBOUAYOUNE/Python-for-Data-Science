@@ -1,7 +1,8 @@
 # REF: https://matplotlib.org/stable/tutorials/pyplot.html#sphx-glr-tutorials-pyplot-py
 
-import matplotlib.pyplot as plt
 from load_csv import load
+import matplotlib.pyplot as plt
+from matplotlib.ticker import MultipleLocator
 
 
 def plotCountryLifeExpectancy(path: str) -> None:
@@ -11,17 +12,11 @@ def plotCountryLifeExpectancy(path: str) -> None:
     """
     try:
         df = load(path)
-        # print(df.head())
-        # print(df.shape)
-        # print(df.loc['Morocco'])
-        # print(df.loc['Morocco'].isnan().any())
-        years = df.columns
-        # print(years.isna().any())  # Check if there are any NaN values in the columns
-        moroccan_data = df.loc['Morocco'].values
-        years = [int(year) for year in years]
-        print(years)
-        # print(years, moroccan_data)
+        years = df.columns.astype(int)
+        moroccan_data = df.loc['Morocco'].copy()
+        ax = plt.gca()
         plt.plot(years, moroccan_data, linestyle='-')
+        ax.xaxis.set_major_locator(MultipleLocator(40))
         plt.title('Morocco Life Expectancy Projections')
         plt.xlabel('Year')
         plt.ylabel('Life Expectancy')

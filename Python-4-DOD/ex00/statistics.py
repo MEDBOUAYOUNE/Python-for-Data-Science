@@ -1,18 +1,26 @@
 def mean(*args):
-    """ """
+    """
+    Print the mean (average) of the given numbers.
+    param args: the numbers to process.
+    """
     data = args
     print(f"mean : {float(sum(data)/len(data))}")
 
 
 def median(*args):
-    """ """
-    data = args
-    data = sorted(data)
+    """
+    Print the median (middle value) of the given numbers.
+    param args: the numbers to process.
+    """
+    data = sorted(args)
     print(f"median : {data[len(data) // 2]}")
 
 
 def quartile(*args):
-    """ """
+    """
+    Print the first (25%) and third (75%) quartiles of the given numbers.
+    param args: the numbers to process.
+    """
     data = sorted(args)
     q1 = data[len(data) // 4]
     q3 = data[(len(data) * 3) // 4]
@@ -20,7 +28,10 @@ def quartile(*args):
 
 
 def var(*args):
-    """ """
+    """
+    Print the (population) variance of the given numbers.
+    param args: the numbers to process.
+    """
     data = args
     mean_value = sum(data) / len(data)
     variance = sum((x - mean_value) ** 2 for x in data) / len(data)
@@ -28,7 +39,10 @@ def var(*args):
 
 
 def std(*args):
-    """ """
+    """
+    Print the (population) standard deviation of the given numbers.
+    param args: the numbers to process.
+    """
     data = args
     mean_value = sum(data) / len(data)
     variance = sum((x - mean_value) ** 2 for x in data) / len(data)
@@ -38,13 +52,18 @@ def std(*args):
 
 def ft_statistics(*args: any, **kwargs: any) -> None:
     """
-    Compute and print various statistics based on provided data and requested metrics.
+    Compute and print various statistics 
+    based on provided data and requested metrics.
+    param args: the numbers to process.
+    param kwargs: the requested metrics; each value is one of
+        "mean", "median", "quartile", "var" or "std".
+        Any other value prints ERROR.
     """
     if not args and not kwargs:
-        return 
+        return None
     if not args:
         print("ERROR")
-        return
+        return None
     for key, value in kwargs.items():
         if value == "mean":
             mean(*args)

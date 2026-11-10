@@ -1,5 +1,6 @@
 class calculator:
-    """"Calculator class to perform basic arithmetic operations on a list of numbers."""
+    """"Calculator class to perform basic 
+    arithmetic operations on a list of numbers."""
     def __init__(self, numbers: list):
         """Constructor to initialize the calculator with a list of numbers."""
         self.numbers = numbers

@@ -1,4 +1,3 @@
-# Ref : https://pandas.pydata.org/docs/
 import pandas as pd
 
 

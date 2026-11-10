@@ -14,7 +14,6 @@ class Student:
     surname: str
     active: bool = True
 
-    # Computed fields (not init)
     login: str = field(init=False)
     id: str = field(init=False, default_factory=generate_id)
 

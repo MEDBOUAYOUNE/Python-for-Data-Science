@@ -9,21 +9,20 @@ class Baratheon(Character):
         self.family_name = 'Baratheon'
         self.eyes = 'brown'
         self.hairs = 'dark'
-    
+
     def die(self):
-        """ """
+        """ Baratheon Class die """
         self.is_alive = False
         # return self.is_alive
 
     def __str__(self):
-        """ """
-        return f"the {self.family_name} family member named {self.first_name} with {self.eyes} eyes and {self.hairs} hair."
+        """ Baratheon Class __str__"""
+        return f"the {self.family_name} family member named {
+            self.first_name} with {self.eyes} eyes and {self.hairs} hair."
 
     def __repr__(self):
+        """Baratheon Class __repr__"""
         return f"<Baratheon: {self.first_name}, Alive: {self.is_alive}>"
-    
-
-    
 
 
 class Lannister(Character):
@@ -34,20 +33,21 @@ class Lannister(Character):
         self.family_name = 'Lannister'
         self.eyes = 'blue'
         self.hairs = 'light'
-    
+
     def die(self):
-        """ """
+        """ Lannister class die"""
         self.is_alive = False
         # return self.is_alive
-    
+
     @classmethod
     def create_lannister(cls, first_name, is_alive=True):
         """ """
         return cls(first_name, is_alive)
-    
+
     def __str__(self):
         """ """
-        return f"the {self.family_name} family member named {self.first_name} with {self.eyes} eyes and {self.hairs} hair."
+        return f"the {self.family_name} family member named {
+            self.first_name} with {self.eyes} eyes and {self.hairs} hair."
 
     def __repr__(self):
         return f"<Lannister: {self.first_name}, Alive: {self.is_alive}>"
